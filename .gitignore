@@ -6,3 +6,5 @@
 /.vs/sys-approver/v16/.suo
 /.vs/slnx.sqlite
 /src/SysApprover.WebApi/.vs/SysApprover.WebApi/v16/.suo
+/src/SysApprover.WebApi/ConElsa/bin/Debug/netcoreapp3.1
+/src/SysApprover.WebApi/ConElsa/obj

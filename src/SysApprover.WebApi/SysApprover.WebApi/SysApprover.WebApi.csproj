@@ -13,6 +13,9 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Elsa" Version="1.2.2.29" />
+    <PackageReference Include="Elsa.Activities.Http" Version="1.2.2.29" />
+    <PackageReference Include="Elsa.Core" Version="1.2.2.29" />
     <PackageReference Include="Microsoft.AspNetCore.SpaServices.Extensions" Version="3.1.8" />
   </ItemGroup>
 

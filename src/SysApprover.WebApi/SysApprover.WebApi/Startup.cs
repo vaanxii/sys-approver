@@ -1,3 +1,4 @@
+using Elsa.Activities.Http.Extensions;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -5,6 +6,7 @@ using Microsoft.AspNetCore.SpaServices.AngularCli;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using SysApprover.WebApi.Elsa;
 
 namespace SysApprover.WebApi
 {
@@ -21,6 +23,14 @@ namespace SysApprover.WebApi
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
+
+
+            services.AddElsa()
+                    .AddHttpActivities()
+                    .AddWorkflow<HelloWorldHttpWorkflow>();
+
+
+
             // In production, the Angular files will be served from this directory
             services.AddSpaStaticFiles(configuration =>
             {
@@ -41,6 +51,9 @@ namespace SysApprover.WebApi
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
+
+            // HTTP request pipeline for ELSA
+            app.UseHttpActivities();
 
             app.UseHttpsRedirection();
             app.UseStaticFiles();
